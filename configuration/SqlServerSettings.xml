@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSettings>
+	<setting key="ServerName" value="127.0.0.1" />
+	<setting key="DatabaseName" value="EducationCentre" />
+	<setting key="Username" value="sa" />
+	<setting key="Password" value="dotanphat" />
+</appSettings>
