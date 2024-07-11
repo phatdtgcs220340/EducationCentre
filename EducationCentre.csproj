@@ -9,9 +9,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SqlServerSettings.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SqlServerSettings.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="mappers\" />
-    <Folder Include="exception\" />
-    <Folder Include="services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="repositories\ProfileRepository.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
 </Project>

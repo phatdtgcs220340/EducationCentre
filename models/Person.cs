@@ -8,32 +8,21 @@ namespace EducationCentre.models
 {
     public abstract class Person
     {
-        public Person(int id, Profile profile) { 
-            this.Id = id;
-            this.Profile = profile;
-        }
-        public int Id { get; }
-        public Profile Profile { get; }
+        public int Id { get; set; }
+        public Profile Profile { get; set; }
     }
     public class Student : Person
     {
-        public Student(int id, Profile profile) : base(id, profile)
-        {
-            this.Profile.Role = Role.Student;
-        }
+        public List<Subject> Subjects { get; }
     }
     public class TeachingStaff : Person
     {
-        public TeachingStaff(int id, Profile profile) : base(id, profile)
-        {
-            this.Profile.Role = Role.TeachingStaff;
-        }
+        public List<Subject> Subjects { get; }
+        public Salary Salary { get; set; }
     }
     public class Administration : Person
     {
-        public Administration(int id, Profile profile) : base(id, profile)
-        {
-            this.Profile.Role = Role.Administration;
-        }
+        public Salary Salary { get; set; }
+        public string Status { get; set; }
     }
 }

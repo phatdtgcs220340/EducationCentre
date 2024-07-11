@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EducationCentre.dtos
+namespace EducationCentre.dtos.requests
 {
     public class CreateNewUserDTO
     {
