@@ -13,16 +13,17 @@ namespace EducationCentre.models
     }
     public class Student : Person
     {
-        public List<Subject> Subjects { get; }
+        public List<Subject> Subjects { get; set; }
     }
     public class TeachingStaff : Person
     {
-        public List<Subject> Subjects { get; }
+        public List<Subject> Subjects { get; set; }
         public Salary Salary { get; set; }
     }
     public class Administration : Person
     {
         public Salary Salary { get; set; }
         public string Status { get; set; }
+        public int WorkingHours { get; set; }
     }
 }

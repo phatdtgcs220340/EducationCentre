@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace EducationCentre.repositories
 {
     /**
-     * @brief : A class do the CRUD operations on Infrastructure layer for the Profile model
+     * A class do the CRUD operations on Infrastructure layer for the Profile model
      */
     public class ProfileRepository : Repository<Profile>
     {
@@ -35,7 +35,6 @@ namespace EducationCentre.repositories
                 {
                     List<Profile> profiles = new List<Profile>();
                     while (reader.Read())
-                    {
                         profiles.Add(new Profile
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("id")),
@@ -44,7 +43,6 @@ namespace EducationCentre.repositories
                             Telephone = reader.GetString(reader.GetOrdinal("telephone")),
                             Role = (Role)Enum.Parse(typeof(Role), reader.GetString(reader.GetOrdinal("role")))
                         });
-                    }
                     return profiles;
                 }
             });
@@ -60,7 +58,6 @@ namespace EducationCentre.repositories
                 {
                    if (reader.Read())
                         return new Profile
-
                         {
                             Id = reader.GetInt32(reader.GetOrdinal("Id")),
                             Name = reader.GetString(reader.GetOrdinal("Name")),
@@ -87,12 +84,11 @@ namespace EducationCentre.repositories
                 command.Parameters.AddWithValue("@Phone", model.Telephone);
                 command.Parameters.AddWithValue("@Role", model.Role.ToString());
                 command.Parameters.AddWithValue("@Password", model.Password);
-                var result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int id))
-                    model.Id = id;
+                model.Id = Convert.ToInt32(command.ExecuteScalar());
                 return model;
             });
         }
+
         public Profile FindByEmail(string email)
         {
             string statement = "SELECT * FROM Profile WHERE email = @Email";
@@ -114,6 +110,19 @@ namespace EducationCentre.repositories
                     else
                         throw new CustomException("Profile not found", CustomExceptionType.ProfileNotFound);
                 }
+            });
+        }
+
+        public Profile Update(Profile profile)
+        {
+            string statement = "UPDATE Profile SET name = @Name, telephone = @Phone WHERE id = @Id";
+            return RepositoryExtension.Function(statement, (command) =>
+            {
+                command.Parameters.AddWithValue("@Name", profile.Name);
+                command.Parameters.AddWithValue("@Phone", profile.Telephone);
+                command.Parameters.AddWithValue("@Id", profile.Id);
+                command.ExecuteNonQuery();
+                return profile;
             });
         }
     }

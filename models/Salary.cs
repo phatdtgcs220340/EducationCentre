@@ -9,7 +9,7 @@ namespace EducationCentre.models
     public class Salary
     {
         public int Id { get; set; }
-        public float Amount { get; set; }
+        public Decimal Amount { get; set; }
         public int Month { get; set; }
     }
 }

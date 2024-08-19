@@ -9,7 +9,9 @@ namespace EducationCentre.exception
     public enum CustomExceptionType
     {
         ProfileNotFound,
-        ProfileAlreadyExists
+        ProfileAlreadyExists,
+        SubjectNotFound,
+        SubjectAlreadyExists
     }
     public class CustomException : Exception
     {

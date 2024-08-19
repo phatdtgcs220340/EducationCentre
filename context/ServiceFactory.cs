@@ -12,7 +12,9 @@ namespace EducationCentre.context
         Authentication,
         Student,
         Administration,
-        TeachingStaff
+        TeachingStaff,
+        Salary,
+        Subject
     }   
     /**
      * @brief : A class that manages the service objects
@@ -24,7 +26,9 @@ namespace EducationCentre.context
             { ServiceType.Authentication, new AuthenticationService() },
             { ServiceType.Student, new StudentService() },
             { ServiceType.Administration, new AdministrationService() },
-            { ServiceType.TeachingStaff, new TeachingStaffService() }
+            { ServiceType.TeachingStaff, new TeachingStaffService() },
+            { ServiceType.Salary, new SalaryService() },
+            {ServiceType.Subject, new SubjectService() },
         };
 
         public static T GetService<T>(ServiceType type)

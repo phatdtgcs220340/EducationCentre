@@ -10,6 +10,7 @@ namespace EducationCentre.models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime DateStarted { get; }
+        public DateTime DateCreated { get; set;  }
+        public DateTime? DateStarted { get; set; }
     }
 }

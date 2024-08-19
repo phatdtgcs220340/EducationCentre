@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace EducationCentre.context
 {
     /**
-     * @brief : A class that stores the authentication context
+     * A class that stores the authentication context
      */
     public class AuthenticationContext
     {
-        public static Profile Authentication { get; set; }
+        public static Person Authentication { get; set; }
     }
 }

@@ -13,7 +13,9 @@ namespace EducationCentre.context
         Student,
         Administration,
         TeachingStaff,
-        Profile
+        Profile,
+        Salary,
+        Subject
     }
     
     /**
@@ -27,7 +29,9 @@ namespace EducationCentre.context
             { RepositoryType.Student, new StudentRepository() },
             { RepositoryType.Administration, new AdminstrationRepository() },
             { RepositoryType.TeachingStaff, new TeachingStaffRepository() },
-            { RepositoryType.Profile, new ProfileRepository() }
+            { RepositoryType.Profile, new ProfileRepository() },
+            { RepositoryType.Salary, new SalaryRepository() },
+            { RepositoryType.Subject, new SubjectRepository() }
         };
 
         public static Repository<T> GetRepository<T>(RepositoryType type)

@@ -16,6 +16,11 @@ namespace EducationCentre.repositories
         List<T> FindAll();
         T FindById(long id);
     }
+
+    public interface RoleRepository<T> : Repository<T>
+    {
+        T FindByProfile(long profileId);
+    }
     // Interface extension method class
     public static class RepositoryExtension
     {

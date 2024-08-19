@@ -19,5 +19,17 @@ namespace EducationCentre.services
         {
             return teachingStaffRepository.Save(model);
         }
+        public List<Subject> Subjects(long id)
+        {
+            return ((TeachingStaffRepository)teachingStaffRepository).Subjects(id);
+        }
+        public void registerSubject(long teachingStaffId, long subjectId)
+        {
+            ((TeachingStaffRepository)teachingStaffRepository).registerSubject(teachingStaffId, subjectId);
+        }
+        public void unregisterSubject(long teachingStaffId, long subjectId)
+        {
+            ((TeachingStaffRepository)teachingStaffRepository).unregisterSubject(teachingStaffId, subjectId);
+        }
     }
 }
